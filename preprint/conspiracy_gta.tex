@@ -1,0 +1,555 @@
+\documentclass[scrarticle]{scrartcl}
+
+\usepackage[T1]{fontenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{authblk}
+   \renewcommand\Affilfont{\small}
+\usepackage[style=english]{csquotes}
+\usepackage{dcolumn}
+   \newcolumntype{d}[1]{D{.}{.}{#1}}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[hidelinks]{hyperref}
+   \urlstyle{rm}
+\usepackage[os=win]{menukeys}
+\usepackage[authoryear]{natbib}
+\usepackage{url}
+
+\setcitestyle{aysep={}}
+
+\deffootnote{1.5em}{1em}{\makebox[1.5em][l]{\thefootnotemark}}
+   \setlength{\skip\footins}{1.5em}
+   \setlength{\footnotesep}{1em}
+
+\begin{document}
+
+
+%%%%%%%%%%
+% CORPUS %
+%%%%%%%%%%
+\section{The GTA Corpus}\label{sec:corpus}
+Text files for \textit{Grand Theft Auto} (1997), \textit{Grand Theft Auto 2} (1999), \textit{Grand Theft Auto III} (2001), \textit{Grand Theft Auto: Vice City} (2002), \textit{Grand Theft Auto: San Andreas} (2004), \textit{Grand Theft Auto Advance} (2004), \textit{Grand Theft Auto: Liberty City Stories} (2005), \textit{Grand Theft Auto: Vice City Stories} (2006), and \textit{Grand Theft Auto: Chinatown Wars} (2009) were sourced from the internet.
+Files for \textit{Grand Theft Auto IV} (2008), \textit{Grand Theft Auto IV: The Lost and Damned} (2009), \textit{Grand Theft Auto IV: The Ballad of Gay Tony} (2009), as well as \textit{Grand Theft Auto V} (2013) have been identified, decompressed, decrypted, and converted from the proprietary GXT2 archives using the OpenIV utility.
+The extraction targeted specific language repositories within the game's file system to ensure a comprehensive capture of English strings (for a full list of files as well as their sources in the web or the game files, see \autoref{sec:app_corpus}).
+
+The $950$ files share a consistent underlying structure:
+They begin with metadata headers (e.\,g., containing version information), followed by a line-by-line mapping of unique keys to specific text content.
+Furthermore, the text contains internal markup, such as color codes and formatting tags.
+In its raw state, the corpus appears as shown below.
+
+\begin{table}[h!]
+\begin{tabular}{lr}
+   Metric              & Value               \\\hline\hline
+   Lines               &    $631,033$        \\
+   Characters          & $27,877,767$        \\
+   Tokens              &  $4,131,031$        \\
+   Unique Word Types   &    $769,730$        \\
+   Type-Token Ratio    &          $0.1863$   \\\hline
+\end{tabular}
+\end{table}
+
+\noindent We used regular expressions and heuristic filters to systematically eliminate technical noise from the dataset.
+Specifically, tilde-wrapped sequences, underscored identifiers, strings consisting entirely of uppercase letters, as well as purely numeric sequences were stripped.\footnote{The Python script is available from \url{https://github.com/alephmembeth/conspiracy-gta/tree/main/analysis}.}
+After cleaning the data in this way, the processed corpus looks as follows.
+
+\begin{table}[h!]
+\begin{tabular}{lrr}
+   Metric              & Value               & Difference           \\\hline\hline
+   Lines               &    $367,301$        &    $-263,732$        \\
+   Characters          & $15,347,302$        & $-12,530,465$        \\
+   Tokens              &  $2,686,957$        &  $-1,444,074$        \\
+   Unique Word Types   &     $45,697$        &    $-724,033$        \\
+   Type-Token Ratio    &          $0.0170$   &          $-0.1693$   \\\hline
+\end{tabular}
+\end{table}
+
+
+%%%%%%%%%%%%
+% APPENDIX %
+%%%%%%%%%%%%
+\clearpage
+\appendix
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – CORPUS %
+%%%%%%%%%%%%%%%%%%%%%
+\section{Sources of the GTA Corpus}\label{sec:app_corpus}
+
+\subsection*{Grand Theft Auto (1997)}
+\url{https://fusionfix.io/gta-text}
+
+\begin{quote}
+   \ttfamily
+   gta.csv
+\end{quote}
+
+
+\subsection*{Grand Theft Auto 2 (1999)}
+\url{http://spaceeinstein.altervista.org/gxt/GTA2\_EN.txt}
+
+\begin{quote}
+   \ttfamily
+   gta\_2.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto III (2001)}
+\url{https://web.archive.org/web/20171028075956/http://public.sannybuilder.com/GXT/}
+
+\begin{quote}
+   \ttfamily
+   gta\_iii.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto: Vice City (2002)}
+\url{https://web.archive.org/web/20171028075956/http://public.sannybuilder.com/GXT/}
+
+\begin{quote}
+   \ttfamily
+   gta\_vc.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto: San Andreas (2004)}
+\url{https://web.archive.org/web/20171028075956/http://public.sannybuilder.com/GXT/}
+
+\begin{quote}
+   \ttfamily
+   gta\_sa.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto Advance (2004)}
+\url{https://fusionfix.io/gta-text}
+
+\begin{quote}
+   \ttfamily
+   gta\_a.csv
+\end{quote}
+
+
+\subsection*{Grand Theft Auto: Liberty City Stories (2005)}
+\url{https://web.archive.org/web/20171028075956/http://public.sannybuilder.com/GXT/}
+
+\begin{quote}
+   \ttfamily
+   gta\_lcs.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto: Vice City Stories (2006)}
+\url{https://web.archive.org/web/20171028075956/http://public.sannybuilder.com/GXT/}
+
+\begin{quote}
+   \ttfamily
+   gta\_vcs.txt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto IV (2008)}
+\textbackslash{}Grand Theft Auto IV\textbackslash{}GTAIV\textbackslash{}common\textbackslash{}text
+
+\begin{quote}
+   \ttfamily
+   american.oxt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto IV: The Lost and Damned (2009)}
+\textbackslash{}Grand Theft Auto IV\textbackslash{}GTAIV\textbackslash{}TLAD\textbackslash{}common\textbackslash{}text
+
+\begin{quote}
+   \ttfamily
+   american.oxt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto IV: The Ballad of Gay Tony (2009)}
+\textbackslash{}Grand Theft Auto IV\textbackslash{}GTAIV\textbackslash{}TBoGT\textbackslash{}common\textbackslash{}text
+
+\begin{quote}
+   \ttfamily
+   american.oxt
+\end{quote}
+
+
+\subsection*{Grand Theft Auto: Chinatown Wars (2009)}
+\url{https://fusionfix.io/gta-text}
+
+\begin{quote}
+   \ttfamily
+   gta\_ctw.csv
+\end{quote}
+
+
+\subsection*{Grand Theft Auto V (2013)}
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}update2.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}american\_rel.rpf
+
+\begin{quote}
+   \ttfamily
+   abgail2.oxt, acultau.oxt, afterm.oxt, ah3b.oxt, ah3baud.oxt, ahfaud.oxt, ahprep1.oxt, ambht.oxt, amsolau.oxt, anaud.oxt, animlau.oxt, ar2aud.oxt, arflaud.oxt, arm\_mp.oxt, arm1.oxt, arm1aud.oxt, arm2.oxt, arm3.oxt, arm3aud.oxt, armsaud.oxt, armyaud.oxt, arthoau.oxt, asflaud.oxt, ass\_bs.oxt, ass\_cs.oxt, ass\_hk.oxt, ass\_ml.oxt, ass\_va.oxt, bankh1.oxt, banks1.oxt, bar3aau.oxt, bar3cau.oxt, barr3a.oxt, barr3au.oxt, barr3c.oxt, barr4au.oxt, bary1.oxt, bary1au.oxt, bary2.oxt, bary2au.oxt, bary3.oxt, bb1aud.oxt, bb2aud.oxt, bb3aud.oxt, bb4aud.oxt, bbcaud.oxt, bbonds.oxt, bcaud.oxt, bfinjec.oxt, binkaud.oxt, bioset2.oxt, bjump.oxt, blimpau.oxt, bmark.oxt, board0.oxt, board1.oxt, board2.oxt, board3.oxt, board4.oxt, board5.oxt, board6.oxt, bpress.oxt, brokedn.oxt, bs2baud.oxt, bspraau.oxt, bsprep.oxt, bsprp.oxt, bustoau.oxt, bustour.oxt, c\_race.oxt, cacci.oxt, car4.oxt, carmoau.oxt, cbradau.oxt, chatcau.oxt, chflaud.oxt, chheist.oxt, chi2aud.oxt, chop\_au.oxt, chopper.oxt, clo\_mnu.oxt, clothau.oxt, cntry1.oxt, conacau.oxt, credit.oxt, crstl3.oxt, crwaud.oxt, csflaud.oxt, cst2aud.oxt, cst3aud.oxt, cst4aud.oxt, cst7aud.oxt, cstlcut.oxt, ct\_aud.oxt, cultres.oxt, d1aud.oxt, d2aaud.oxt, d2baud.oxt, dance.oxt, darts.oxt, dctl.oxt, ddeal.oxt, dhfaud.oxt, dhp1aud.oxt, dir\_mnu.oxt, dmatch.oxt, dockh1.oxt, dockh2b.oxt, dockp1.oxt, dockp2b.oxt, dp2baud.oxt, drey1.oxt, drey1au.oxt, drfaud.oxt, dtrfair.oxt, dtrfkdy.oxt, dtrfkgr.oxt, dtrfsea.oxt, dtrshrd.oxt, email.oxt, emsaud.oxt, engaud.oxt, eps1.oxt, eps1au.oxt, eps2.oxt, eps2aud.oxt, eps3.oxt, eps3aud.oxt, eps4.oxt, eps4aud.oxt, eps5aud.oxt, eps6.oxt, eps6aud.oxt, eps7.oxt, eps8.oxt, eps8au.oxt, epsdaud.oxt, epswaud.oxt, escpap.oxt, exilaud.oxt, exl1aud.oxt, exl3aud.oxt, ext1.oxt, ext1au.oxt, ext2.oxt, ext2au.oxt, ext3.oxt, ext3aud.oxt, ext4.oxt, ext4aud.oxt, fafjau.oxt, faflau.oxt, fafmau.oxt, faftau.oxt, fam1aud.oxt, fam2aud.oxt, fam3.oxt, fam3aud.oxt, fam4aud.oxt, fam5.oxt, fam5aud.oxt, fam6.oxt, fam6aud.oxt, famaau.oxt, famfau.oxt, family1.oxt, family2.oxt, family4.oxt, famjau.oxt, famtau.oxt, fan1au.oxt, fan2au.oxt, fan3aud.oxt, fatfau.oxt, fatic1.oxt, fatic2.oxt, fatic3.oxt, fatjau.oxt, fatlau.oxt, fatmau.oxt, fb3aaud.oxt, fb3aud.oxt, fbch.oxt, fbi1.oxt, fbi1aud.oxt, fbi2aud.oxt, fbi3.oxt, fbi5aau.oxt, fbiint.oxt, fbipra.oxt, fbiprau.oxt, fbiprb.oxt, fbiprd.oxt, fbipre.oxt, fbis4au.oxt, fbs1aud.oxt, fcfjau.oxt, fcflau.oxt, fcftau.oxt, fcftlau.oxt, fchase.oxt, fcmaau.oxt, fcmfau.oxt, fcmftau.oxt, fcmjau.oxt, fcmtau.oxt, fctjau.oxt, fctlau.oxt, fh1aud.oxt, fh3aaud.oxt, fhfaud.oxt, fhpbaud.oxt, fibp1au.oxt, fibp2au.oxt, fin1aud.oxt, fin2aud.oxt, final3a.oxt, final3b.oxt, finale1.oxt, finale2.oxt, finc.oxt, finc1au.oxt, fincuau.oxt, finh1.oxt, finpra.oxt, finprb.oxt, finprc.oxt, fkn0aud.oxt, fkn1aud.oxt, flwstrt.oxt, fm\_1au.oxt, fmambau.oxt, fmfaud.oxt, fmflaud.oxt, fmhrd.oxt, fmint.oxt, fmmaud.oxt, fmmc.oxt, fmram.oxt, fmtaud.oxt, fmtrig.oxt, fnflaud.oxt, foflaud.oxt, forsnip.oxt, fos1aud.oxt, fos2aud.oxt, fpfjau.oxt, fpflau.oxt, fpfmau.oxt, fpftau.oxt, fpmaau.oxt, fpmfau.oxt, fpmjau.oxt, fpmtau.oxt, fptfau.oxt, fptjau.oxt, fptlau.oxt, fptmau.oxt, fran1.oxt, fran2.oxt, frflaud.oxt, friends.oxt, frmchse.oxt, getawy.oxt, ggsm.oxt, global.oxt, gun\_mnu.oxt, guncar.oxt, gunshau.oxt, h1heist.oxt, h1set1.oxt, h1set3a.oxt, h1set3b.oxt, h1set3c.oxt, h1set4.oxt, h2part3.oxt, h3heist.oxt, h3set1.oxt, h4heist.oxt, h5heist.oxt, hack.oxt, hairdau.oxt, hao1.oxt, hao1au.oxt, har\_mnu.oxt, heataud.oxt, ht2aud.oxt, ht3aud.oxt, htambau.oxt, hunt1.oxt, hunt1au.oxt, hunt2.oxt, iap.oxt, intesc.oxt, jackaud.oxt, jh1trig.oxt, jhaud.oxt, jhfaud.oxt, jhp1a.oxt, jhp1ads.oxt, jhp1b.oxt, jhp2a.oxt, jhp2ads.oxt, jhs1aud.oxt, josh1au.oxt, josh2.oxt, josh2au.oxt, josh3.oxt, josh3au.oxt, josh4.oxt, josh4au.oxt, joyride.oxt, jp1baud.oxt, jump.oxt, kungaud.oxt, lem1.oxt, lem1aud.oxt, lem2aud.oxt, lest1.oxt, lfi\_f.oxt, lfi\_m.oxt, lfi\_t.oxt, locaud.oxt, loctest.oxt, lonerau.oxt, lowdau.oxt, ls1aaud.oxt, lsflaud.oxt, lurinau.oxt, m3aud.oxt, maude1.oxt, maudeau.oxt, mc\_play.oxt, mch1.oxt, mch1aud.oxt, mch2.oxt, mch2aud.oxt, mea1.oxt, mea1aud.oxt, meflaud.oxt, mej1.oxt, mej1aud.oxt, meltaud.oxt, met1.oxt, met1aud.oxt, meth.oxt, methaud.oxt, mgheli.oxt, mgpsaud.oxt, mgtnaud.oxt, mgtraud.oxt, mic3.oxt, miflaud.oxt, min1.oxt, min1aud.oxt, min2.oxt, min2au.oxt, min3.oxt, min3aud.oxt, mishsta.oxt, mod\_mnu.oxt, mooreau.oxt, mp\_rng.oxt, mpawd.oxt, mpdlcau.oxt, mpgcsau.oxt, mpsvaud.oxt, mptxiau.oxt, mrsp1.oxt, mrsp2.oxt, murmys.oxt, ng\_install.oxt, nhheist.oxt, nhous1a.oxt, nhous1b.oxt, nig1aau.oxt, nig1bau.oxt, nig1cau.oxt, nig1dau.oxt, nig2aud.oxt, nige3au.oxt, nigel1a.oxt, nigel1b.oxt, nigel1c.oxt, nigel1d.oxt, nigel2.oxt, nigel3.oxt, nws\_agh.oxt, nws\_ar2.oxt, nws\_ar3.oxt, nws\_ass1.oxt, nws\_ass2.oxt, nws\_ass3.oxt, nws\_ass4.oxt, nws\_ass5.oxt, nws\_bsh.oxt, nws\_cars2.oxt, nws\_cars3.oxt, nws\_chi1.oxt, nws\_chi2.oxt, nws\_cult.oxt, nws\_dckh.oxt, nws\_drf1.oxt, nws\_epn8.oxt, nws\_exl1.oxt, nws\_exl3.oxt, nws\_ext4.oxt, nws\_fam1.oxt, nws\_fam3.oxt, nws\_fam4.oxt, nws\_fam6.oxt, nws\_fib2.oxt, nws\_fib3.oxt, nws\_fib4.oxt, nws\_fib5.oxt, nws\_fin.oxt, nws\_fra1.oxt, nws\_jwlh.oxt, nws\_lam1.oxt, nws\_lst1.oxt, nws\_mic1.oxt, nws\_mic3.oxt, nws\_mic4.oxt, nws\_mtn1.oxt, nws\_nig1a.oxt, nws\_nig1b.oxt, nws\_nig1c.oxt, nws\_nig1d.oxt, nws\_nig2.oxt, nws\_nig3.oxt, nws\_o\_ata.oxt, nws\_pap1.oxt, nws\_pap3a.oxt, nws\_pap3b.oxt, nws\_pro.oxt, nws\_rbh.oxt, nws\_shk5.oxt, nws\_sol1.oxt, nws\_sol2.oxt, nws\_sol3.oxt, nws\_tre2.oxt, nws\_tre3.oxt, ojasaud.oxt, ojbjaud.oxt, ojtxaud.oxt, omega1.oxt, omega2.oxt, orraud.oxt, pacowau.oxt, paflaud.oxt, pap1.oxt, pap1aud.oxt, pap2.oxt, pap2aud.oxt, pap3.oxt, pap3aau.oxt, pap3au.oxt, pap3bau.oxt, pap4.oxt, pap4aud.oxt, pbamaud.oxt, pbbbaud.oxt, pbbyaud.oxt, pbclaud.oxt, pbgraud.oxt, pbjaaud.oxt, pbjeaud.oxt, pbjsaud.oxt, pbmmaud.oxt, pbmnaud.oxt, pbpdaud.oxt, pbproau.oxt, pbshaud.oxt, pbzbaud.oxt, pfight.oxt, pgang.oxt, pmd.oxt, pmdl.oxt, pmgaud.oxt, pmplane.oxt, pmraud.oxt, pprom.oxt, pprot.oxt, precov.oxt, pri1au.oxt, pri2au.oxt, prinaud.oxt, proaud.oxt, prolog.oxt, propaud.oxt, propr.oxt, prsaud.oxt, prtanau.oxt, pschool.oxt, pubc.oxt, races.oxt, rageaud.oxt, ramp1au.oxt, ramp2au.oxt, ramp3au.oxt, ramp4au.oxt, ramp5au.oxt, rangeau.oxt, raspaud.oxt, rb\_12au.oxt, rbh2aud.oxt, rbs1aud.oxt, re\_acau.oxt, reac2au.oxt, rear1au.oxt, rear2au.oxt, rear3au.oxt, rear5au.oxt, rearrau.oxt, reborau.oxt, rebthau.oxt, rebu2au.oxt, recgfau.oxt, rechaau.oxt, recraau.oxt, recsbau.oxt, recshau.oxt, rect1au.oxt, rect2au.oxt, redgwau.oxt, redo2au.oxt, redr1au.oxt, redr2au.oxt, regetau.oxt, regiau.oxt, rehh1au.oxt, rehh2au.oxt, rehh3au.oxt, rehh5au.oxt, rehomau.oxt, remg1au.oxt, remg2au.oxt, remg3au.oxt, remg4au.oxt, repapau.oxt, report.oxt, rerobau.oxt, resecau.oxt, resnaau.oxt, reye\_au.oxt, rhfaud.oxt, rhpaud.oxt, ruralp.oxt, s\_range.oxt, sagrab.oxt, sas1.oxt, sas1aud.oxt, scaud.oxt, scgw.oxt, scrapau.oxt, shaud.oxt, shrink.oxt, sjc.oxt, slflaud.oxt, slm1aud.oxt, snk\_mnu.oxt, sol1.oxt, sol1aud.oxt, sol2.oxt, sol2aud.oxt, sol5.oxt, sol5aud.oxt, sonarau.oxt, sp\_golf.oxt, sp\_spr.oxt, sp\_yoga.oxt, squat.oxt, stagdau.oxt, str1aud.oxt, switch.oxt, swtut.oxt, t1m1aud.oxt, t1m4aud.oxt, t2aud.oxt, tat\_mnu.oxt, tattoau.oxt, taxi.oxt, taxisau.oxt, tcrash.oxt, tennis.oxt, tm44aud.oxt, tmomaud.oxt, tmsg.oxt, tow.oxt, towaud.oxt, trackid.oxt, trev1.oxt, trev3.oxt, trev4.oxt, trv3aud.oxt, trv5.oxt, trv5aud.oxt, trvramp.oxt, txm1aud.oxt, txm2aud.oxt, txm3aud.oxt, txm4aud.oxt, txm6aud.oxt, txm8aud.oxt, txm9aud.oxt, txm10au.oxt, txm12au.oxt, underau.oxt, weedaud.oxt, yoga.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2023\_01\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, sr2chau.oxt, sr2rnau.oxt, sr2roau.oxt, sr21aud.oxt, sr22aud.oxt, sr23aud.oxt, sr24aud.oxt, sr25aud.oxt, sr26aud.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2023\_02\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, xm4c1au.oxt, xm4c2au.oxt, xm4c3au.oxt, xm4c4au.oxt, xm4c5au.oxt, xm4c6au.oxt, xm4dpau.oxt, xm4igau.oxt, xm4jau.oxt, xm4r1au.oxt, xm4r2au.oxt, xm4r3au.oxt, xm4r4au.oxt, xm4r5au.oxt, xm4vau.oxt, xm4yau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2024\_01\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, s24b1au.oxt, s24b2au.oxt, s24b3au.oxt, s24b4au.oxt, s24b5au.oxt, s24b6au.oxt, s24igau.oxt, s24jaud.oxt, s24maud.oxt, s24vaud.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2024\_02\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, x24caau.oxt, x24dau.oxt, x24fau.oxt, x24h1au.oxt, x24h2au.oxt, x24igau.oxt, x24jau.oxt, x24laau.oxt, x24moau.oxt, x24oau.oxt, x24paud.oxt, x24vau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2025\_01\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, s25csau.oxt, s25mau.oxt, s25rau.oxt, s25rcau.oxt, s25rhau.oxt, s25rsau.oxt, s25t1au.oxt, s25t2au.oxt, s25t3au.oxt, s25t4au.oxt, s25t5au.oxt, s25t6au.oxt, s25teau.oxt, s25tiau.oxt, s25tmau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mp2025\_02\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, x25a1au.oxt, x25a2au.oxt, x25a3au.oxt, x25a4au.oxt, x25a5au.oxt, x25a6au.oxt, x25afau.oxt, x25cbau.oxt, x25dsau.oxt, x25fbau.oxt, x25maau.oxt, x25rbau.oxt, x25vnau.oxt, xm5csau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpapartment\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   apair.oxt, apcalau.oxt, apcutau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpassault\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpbattle\textbackslash{}dlc1.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   batfmau.oxt, btcutau.oxt, global.oxt, lazfmau.oxt, paifmau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mpbeach\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpbiker\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   bplesau.oxt, bpmalau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mpbusiness\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mpbusiness2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpchristmas2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpchristmas3\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, xm3dxau.oxt, xm3gvau.oxt, xm3igau.oxt, xm3laau.oxt, xm3ldau.oxt, xm3lrau.oxt, xm3rnau.oxt, xm3txau.oxt, xm31aud.oxt, xm32aud.oxt, xm33aud.oxt, xm34aud.oxt, xm35aud.oxt, xm36aud.oxt, xm37aud.oxt, xm38aud.oxt, xm39aud.oxt, xm310au.oxt, xm311au.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpchristmas2017\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, h2cutau.oxt, iaadeau.oxt, iaafiau.oxt, iaamoau.oxt, iaasfau.oxt, silbcau.oxt, silfiau.oxt, silprau.oxt, silspau.oxt, siltaau.oxt, subbmau.oxt, subcaau.oxt, subfiau.oxt, subfoau.oxt, subosau.oxt, subriau.oxt, xmfmaud.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpchristmas2018\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   arannau.oxt, arasau.oxt, arintau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpexecutive\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   excalau.oxt, excpaau.oxt, exhelau.oxt, expowau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpg9ec\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   g9haaud.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpgunrunning\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, gnrcaud.oxt, gnrweau.oxt, grapcau.oxt, grdunau.oxt, grhalau.oxt, grmocau.oxt, grop2au.oxt, groppau.oxt, grtamau.oxt, grtrsau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mphalloween\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpheist\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, hecutau.oxt, lcau.oxt, mpawd.oxt, mpbscau.oxt, mpbseau.oxt, mpbsfau.oxt, mpbsvau.oxt, mpcdeau.oxt, mpghau.oxt, mpspau.oxt, nacau.oxt, nacoau.oxt, nafinau.oxt, nsmau.oxt, nsteau.oxt, nttau.oxt, nwe.oxt, obhb.oxt, obhcoau.oxt, obhcuau.oxt, obhfau.oxt, obhp3au.oxt, obhptau.oxt, obhshau.oxt, pbbau.oxt, pbfau.oxt, pbpau.oxt, pbstau.oxt, pbuau.oxt, prcutau.oxt, tucarau.oxt, tucsau.oxt, tufin.oxt, tuscoau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpheist3\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, hs3ceau.oxt, hs3cwau.oxt, hs3faau.oxt, hs3fiau.oxt, hs3leau.oxt, hs3mnau.oxt, hs3prau.oxt, hs3reau.oxt, hs3vnau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpheist4\textbackslash{}dlc1.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, h4scpau.oxt, hs4bpau.oxt, hs4csau.oxt, hs4edau.oxt, hs4faud.oxt, hs4fiau.oxt, hs4moau.oxt, hs4paau.oxt, hs4paud.oxt, hs4piau.oxt, hs4psau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mphipster\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpimportexport\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, imarmau.oxt, imblzau.oxt, imdunau.oxt, immecau.oxt, impaaud.oxt, imphaau.oxt, imruiau.oxt, imtecau.oxt, imvolau.oxt, imwasau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mpindependence\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpjanuary2016\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   besceau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mplowrider\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, lowasau.oxt, lowbeau.oxt, lowbuau.oxt, lowcaau.oxt, lowdbau.oxt, lowfiau.oxt, lowfsau.oxt, lowgeau.oxt, lowpcau.oxt, lowreau.oxt, lowtrau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mplowrider2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mplts\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   fmltsau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpluxe\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpluxe2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mppilot\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   dschool.oxt, global.oxt, psdaud.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpsecurity\textbackslash{}dlc1.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   fxbaaud.oxt, fxcutau.oxt, fxdl0au.oxt, fxdl1au.oxt, fxdl2au.oxt, fxdl3au.oxt, fxdl4au.oxt, fxdl5au.oxt, fxfaaud.oxt, fxflaud.oxt, fxfraud.oxt, fxigaud.oxt, fximaud.oxt, fxlmaud.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpsmuggler\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, smgcaud.oxt, smgfzau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpspecialraces\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpstunt\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpsum\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   ccycaud.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpsum2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, sm2agau.oxt, sm2maau.oxt, sm2toau.oxt, sm2u1au.oxt, sm2u2au.oxt, sm2u3au.oxt, sm2u4au.oxt, sm2u5au.oxt, sm2u6au.oxt, sm2ulau.oxt, sm2wbau.oxt, sm2yoau.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpSum2\_G9EC\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mptuner\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt, tnaraud.oxt, tncsbau.oxt, tncutau.oxt, tnfbbau.oxt, tnfbkau.oxt, tnfboau.oxt, tnfflau.oxt, tnfftau.oxt, tnfiaau.oxt, tnfmcau.oxt, tnfmhau.oxt, tnfudau.oxt, tnheaud.oxt, tnmmaud.oxt, tnrpaud.oxt, tnssaud.oxt, tumsaud.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}mpvalentines\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpvalentines2\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpvinewood\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   cagtau.oxt, cas1aud.oxt, cas2aud.oxt, cas3aud.oxt, cas4aud.oxt, cas5aud.oxt, cas6aud.oxt, casbkau.oxt, casinau.oxt, caspaud.oxt, casuiau.oxt, ctomau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpxmas\_604490\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}x64w.rpf\textbackslash{}dlcpacks\textbackslash{}spupgrade\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}data\textbackslash{}lang\textbackslash{}americandlc.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}update.rpf\textbackslash{}x64\textbackslash{}patch\textbackslash{}data\textbackslash{}lang\textbackslash{}american\_rel.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpapartment\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}patch\textbackslash{}data\textbackslash{}lang\textbackslash{}american.rpf
+
+\begin{quote}
+   \ttfamily
+   bacalau.oxt, global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}mpluxe\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}patch\textbackslash{}data\textbackslash{}lang\textbackslash{}american.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+\textbackslash{}Grand Theft Auto V\textbackslash{}update\textbackslash{}x64\textbackslash{}dlcpacks\textbackslash{}patchday1ng\textbackslash{}dlc.rpf\textbackslash{}x64\textbackslash{}patch\textbackslash{}data\textbackslash{}lang\textbackslash{}american.rpf
+
+\begin{quote}
+   \ttfamily
+   global.oxt
+\end{quote}
+
+
+\end{document}
