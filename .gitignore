@@ -1,7 +1,11 @@
 # macOS
 *.DS_Store
 
-# Jupyter Notebooks
+# Files
+conspiracy_gta_master_corpus.csv
+conspiracy_gta_search_results.csv
+
+# Jupyter Notebook
 *.ipynb_checkpoints
 */.ipynb_checkpoints/*
 
