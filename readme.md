@@ -1,1 +1,1 @@
-# conspiracy-gta
+# game-studies-gta
