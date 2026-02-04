@@ -2,8 +2,8 @@
 *.DS_Store
 
 # Files
-conspiracy_gta_master_corpus.csv
-conspiracy_gta_search_results.csv
+game_studies_gta_master_corpus.csv
+game_studies_gta_search_results.csv
 
 # Jupyter Notebook
 *.ipynb_checkpoints
