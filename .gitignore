@@ -38,3 +38,8 @@ game_studies_gta_search_results.csv
 *.synctex.gz
 *.synctex.gz(busy)
 *.pdfsync
+
+# Files
+game_studies_gta_keyword_counts.csv
+game_studies_gta_master_corpus.csv
+game_studies_gta_search_results.csv
