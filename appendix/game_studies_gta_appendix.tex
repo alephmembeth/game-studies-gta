@@ -3,9 +3,11 @@
 \usepackage[T1]{fontenc}
 
 \usepackage[english]{babel}
+\usepackage{booktabs}
 \usepackage{caption}
 \usepackage{graphicx}
    \graphicspath{{./figures/}}
+\usepackage{longtable}
 \usepackage[hidelinks]{hyperref}
    \urlstyle{rm}
 
@@ -44,6 +46,174 @@
    \captionsetup{font=small,singlelinecheck=false}
    \caption*{\textit{Note. Words are counted after lowercasing, with tokens of fewer than three characters, the stopword list, and some further tokens removed.}}
 \end{figure}
+
+
+%%%%%%%%%%%%%%%%%%%%%
+% APPENDIX – TABLES %
+%%%%%%%%%%%%%%%%%%%%%
+\clearpage
+\section{Additional Tables}\label{sec:app_tables}
+
+\newlength{\keywordtabwidth}
+\setlength{\keywordtabwidth}{.55\linewidth}
+\setlength{\LTcapwidth}{\keywordtabwidth}
+\setlength{\LTleft}{.5\linewidth}\addtolength{\LTleft}{-.5\keywordtabwidth}
+\setlength{\LTright}{\LTleft}
+\begin{longtable}{@{}l@{\extracolsep{\fill}}r@{}}
+   \caption{Frequencies of search terms by thematic dimension}
+   \label{tab:app_tables_keywords}                               \\
+   \toprule
+   Keyword                             &           Occurrences   \\
+   \midrule
+   \endfirsthead
+   \toprule
+   Keyword                             &           Occurrences   \\
+   \midrule
+   \endhead
+   \midrule
+   \multicolumn{2}{r@{}}{%
+      \footnotesize\textit{continued on next page}}              \\
+   \endfoot
+   \bottomrule
+   \endlastfoot
+   \multicolumn{2}{@{}l}{\textit{Aliens and UFOs}}               \\*
+   \midrule
+   \addlinespace[.2em]
+   abduct\textsuperscript{*}           &                    28   \\
+   alien\textsuperscript{*}            &                   165   \\
+   anunnaki                            &                     3   \\
+   area 51                             &                     1   \\
+   area 53                             &                     2   \\
+   area 69                             &                    12   \\
+   extraterrestrial\textsuperscript{*} &                     4   \\
+   mars                                &                     7   \\
+   reptilian                           &                     4   \\
+   saucer\textsuperscript{*}           &                     2   \\
+   spaceship                           &                    25   \\
+   ufo\textsuperscript{*}              &                    16   \\
+   \addlinespace[.6em]
+   \midrule
+   \multicolumn{2}{@{}l}{\textit{Covert sphere}}                 \\*
+   \midrule
+   \addlinespace[.2em]
+   black helicopter\textsuperscript{*} &                     4   \\
+   black ops                           &                     6   \\
+   black project                       &                     8   \\
+   black site\textsuperscript{*}       &                     5   \\
+   bureau                              &                   120   \\
+   cia                                 &                     6   \\
+   clandestine                         &                    19   \\
+   declassif\textsuperscript{*}        &                     1   \\
+   deep state                          &                     7   \\
+   fbi                                 &                    29   \\
+   fib                                 &                   361   \\
+   front company                       &                     1   \\
+   grey government                     &                     1   \\
+   humane labs                         &                    49   \\
+   iaa                                 &                   200   \\
+   national security                   &                    18   \\
+   off the books                       &                    13   \\
+   plausible deniab\textsuperscript{*} &                     2   \\
+   redact\textsuperscript{*}           &                     3   \\
+   united liberty paper                &                     7   \\
+   whistleblow\textsuperscript{*}      &                    10   \\
+   \addlinespace[.6em]
+   \midrule
+   \multicolumn{2}{@{}l}{\textit{General conspiracy language}}   \\*
+   \midrule
+   \addlinespace[.2em]
+   between the lines                   &                     1   \\
+   classified                          &                    11   \\
+   connect the dots                    &                     5   \\
+   conspir\textsuperscript{*}          &                    61   \\
+   decept\textsuperscript{*}           &                     4   \\
+   fake news                           &                     2   \\
+   false flag\textsuperscript{*}       &                     1   \\
+   globalist\textsuperscript{*}        &                    17   \\
+   hoax\textsuperscript{*}             &                     2   \\
+   inside job                          &                     7   \\
+   manipulate\textsuperscript{*}       &                     9   \\
+   open your eyes                      &                     9   \\
+   paranoi\textsuperscript{*}          &                   112   \\
+   red pil\textsuperscript{*}          &                     1   \\
+   sheeple                             &                     2   \\
+   top-secret                          &                     4   \\
+   unveil\textsuperscript{*}           &                     5   \\
+   \addlinespace[.6em]
+   \midrule
+   \multicolumn{2}{@{}l}{\textit{Mind control}}                  \\*
+   \midrule
+   \addlinespace[.2em]
+   aluminium                           &                     2   \\
+   aluminum                            &                    81   \\
+   brainwash\textsuperscript{*}        &                     2   \\
+   fluorid\textsuperscript{*}          &                     0   \\
+   hypnos\textsuperscript{*}           &                     0   \\
+   indoctrinat\textsuperscript{*}      &                     1   \\
+   microwave                           &                     5   \\
+   mind control                        &                     8   \\
+   propaganda                          &                     8   \\
+   subliminal\textsuperscript{*}       &                     1   \\
+   tinfoil                             &                     2   \\
+   \addlinespace[.6em]
+   \midrule
+   \multicolumn{2}{@{}l}{\textit{Surveillance}}                  \\*
+   \midrule
+   \addlinespace[.2em]
+   big brother                         &                     9   \\
+   bugged                              &                     5   \\
+   echelon                             &                     2   \\
+   listening device                    &                     1   \\
+   nsa                                 &                     4   \\
+   phone tap\textsuperscript{*}        &                     2   \\
+   satellite\textsuperscript{*}        &                    48   \\
+   spied                               &                     1   \\
+   spies                               &                    10   \\
+   spy                                 &                    36   \\
+   spying                              &                    11   \\
+   sub-dermal neurophone               &                     1   \\
+   surveil\textsuperscript{*}          &                   131   \\
+   tracking device                     &                    13   \\
+   wire tap\textsuperscript{*}         &                     2   \\
+   wiretap\textsuperscript{*}          &                    15   \\
+   \addlinespace[.6em]
+   \midrule
+   \multicolumn{2}{@{}l}{\textit{Varia}}                         \\*
+   \midrule
+   \addlinespace[.2em]
+   all seeing eye                      &                     2   \\
+   ballot\textsuperscript{*}           &                    13   \\
+   big pharma                          &                     5   \\
+   chemtrail\textsuperscript{*}        &                     0   \\
+   commie\textsuperscript{*}           &                    15   \\
+   communis\textsuperscript{*}         &                    30   \\
+   contrail\textsuperscript{*}         &                     0   \\
+   cover up                            &                     9   \\
+   cover-up                            &                     1   \\
+   coverup                             &                     3   \\
+   elvis                               &                    15   \\
+   flat earth                          &                     0   \\
+   global warming                      &                    20   \\
+   hitler                              &                     1   \\
+   illuminati                          &                     7   \\
+   jfk                                 &                     1   \\
+   kennedy\textsuperscript{*}          &                    11   \\
+   mainstream media                    &                     5   \\
+   moon landing                        &                     0   \\
+   new world order                     &                     5   \\
+   recount                             &                     1   \\
+   vaccin\textsuperscript{*}           &                     2   \\
+   vote rigging                        &                     2   \\
+\end{longtable}
+\setlength{\LTleft}{\fill}\setlength{\LTright}{\fill}
+\nopagebreak
+\vspace{-.15\baselineskip}
+\noindent\hfill\begin{minipage}{\keywordtabwidth}%
+   \footnotesize
+   \textit{Note.
+   Terms are grouped by thematic dimension and sorted alphabetically within each dimension. An asterisk marks truncation, so that ``abduct\textsuperscript{*}'' also matches ``abducted'' and ``abduction''.
+   Searches are case-insensitive and bounded by word boundaries.}
+\end{minipage}\hfill\null
 
 
 %%%%%%%%%%%%%%%%%%%%%
